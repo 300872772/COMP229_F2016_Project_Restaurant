@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
 
 </head>
 <body>
@@ -17,28 +18,47 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("MA_Restaurant", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("<i class=fa fa-home fa-lg></i>Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-home fa-lg"></i> Home</a></li>
+                    <li><a href="@Url.Action("About", "Home")"><i class="fa fa-info fa-lg"></i> About</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")"><i class="fa fa-phone fa-lg"></i> Contact</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-cutlery" aria-hidden="true"></i>
+                            Menu<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Appetizer")">Appetizer</a></li>
+                            <li><a href="@Url.Action("Index", "MainCourse")">MainCourse</a></li>
+                            <li><a href="@Url.Action("Index", "Desserts")">Desserts</a></li>
+                            <li><a href="@Url.Action("Index", "Drinks")">Drinks</a></li>
+                        </ul>
+                    </li>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+         
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <img alt="Banner" src="~/Assets/IndianAndBangladesh.jpg" height="400" width="1253" />
+    <div style="background-color:#ffffff; opacity:0.8;background-position: center; background-repeat: repeat-y; color:black; font-family: Arial">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
