@@ -204,6 +204,7 @@
     <Content Include="Assets\Drinks.jpg" />
     <Content Include="Assets\IndianAndBangladesh.jpg" />
     <Content Include="Assets\MainCourse.jpg" />
+    <Content Include="Assets\Map.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
